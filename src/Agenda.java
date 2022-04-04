@@ -1,34 +1,41 @@
-import java.util.Iterator;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class Agenda {
-    private Contact[] contacts;
-
-    public Agenda(int size) {
-        this.contacts = new Contact[size];
-    }
+    List<Contact> contacts = new LinkedList<Contact>();
 
     public Agenda() {
-        this.contacts = new Contact[5];
+
     }
 
     public void addContact(Contact contact) {
-        for (int i = 0; i < contacts.length; i++) {
-            if (contacts[i] == null) {
-                contacts[i] = contact;
-                break;
-            }
-        }
+        contacts.add(contact);
     }
 
-    public void listContacts() {
-        for (int i = 0; i < contacts.length; i++) {
-            if (contacts[i] != null) {
-                System.out.println(contacts[i]);
-            }
-        }
+
+    public void listContacts(ContactInfo contactInfo) {
+        System.out.println(contacts.toString(contactInfo));
     }
 
     public void removeContact(Contact contact) {
-        for (int i = 0; )
+        contacts.remove(contact);
+    }
+
+    public void loadContacts() {
+        contacts.add(new Contact("John", 123456789));
+        contacts.add(new Contact("Johnathan ", 123455789));
+        contacts.add(new Contact("Kiyan", 123454789));
+        contacts.add(new Contact("Jayquan", 123453789));
+
+    }
+
+    public void emptyContacts() {
+        contacts.clear();
+
+        }
+    }
+
+    public void updateContact(Contact contact){
     }
 }
