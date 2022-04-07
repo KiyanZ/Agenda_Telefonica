@@ -1,8 +1,11 @@
 public class Contact {
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
     private String name;
-    private int telephoneNum;
-    private String address;
-    private String email;
 
     public String getName() {
         return name;
@@ -12,13 +15,17 @@ public class Contact {
         this.name = name;
     }
 
-    public int getTelephoneNum() {
-        return telephoneNum;
+    private String phoneNumber;
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setTelephoneNum(int telephoneNum) {
-        this.telephoneNum = telephoneNum;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
+
+    private String address;
 
     public String getAddress() {
         return address;
@@ -28,6 +35,8 @@ public class Contact {
         this.address = address;
     }
 
+    private String email;
+
     public String getEmail() {
         return email;
     }
@@ -36,25 +45,19 @@ public class Contact {
         this.email = email;
     }
 
-    public Contact(String name, int telephoneNum) {
+    public Contact(int id, String name, String phoneNumber, String address, String email){
+        this.id = id;
         this.name = name;
-        this.telephoneNum = telephoneNum;
-    }
-
-    public Contact(String name, int telephoneNum, String address, String email) {
-        this.name = name;
-        this.telephoneNum = telephoneNum;
+        this.phoneNumber = phoneNumber;
         this.address = address;
         this.email = email;
     }
 
     @Override
     public String toString() {
-        return "Contact{" +
-                "name='" + name + '\'' +
-                ", telephoneNum=" + telephoneNum +
-                ", address='" + address + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        return "Name: " + name + "\n" +
+                "Phone Number: " + phoneNumber + "\n" +
+                "Address: " + address + "\n" +
+                "Email: " + email;
     }
 }
