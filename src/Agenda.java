@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.io.File;
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,12 +16,20 @@ public class Agenda {
     }
 
     private void refresh() {
-        contacts = provider.loadContacts();
+        try {
+            contacts = provider.loadContacts();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         contacts.sort(Comparator.comparing(contact -> contact.getName()));
     }
 
     public void add(Contact contact) {
-        provider.add(contact);
+        try {
+            provider.add(contact);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         refresh();
     }
 
