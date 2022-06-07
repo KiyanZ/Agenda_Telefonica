@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.Comparator;
@@ -24,12 +23,8 @@ public class Agenda {
         contacts.sort(Comparator.comparing(contact -> contact.getName()));
     }
 
-    public void add(Contact contact) {
-        try {
-            provider.add(contact);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void add(Contact contact) throws IOException {
+        provider.add(contact);
         refresh();
     }
 
